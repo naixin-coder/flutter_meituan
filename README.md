@@ -2,17 +2,15 @@
 
 A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 需要实现的功能列表
 
 
+
+- [ ] 美团引导图界面实现
+- [ ] 美团登录界面实现
+- [x] 美团首页实现
+- [ ] 美团首页功能实现
+- [ ] 美团首页功能点实现
+- [ ] 我的页面实现
+- [ ] 美团发现页面实现
+- [ ] 美团订单页面实现
