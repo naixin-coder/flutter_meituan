@@ -1,6 +1,6 @@
 # flutter_meituan
 
-A new Flutter project.
+一个模仿美团实现一个Flutter App Demo
 
 ## 需要实现的功能列表
 
@@ -14,3 +14,5 @@ A new Flutter project.
 - [ ] 我的页面实现
 - [ ] 美团发现页面实现
 - [ ] 美团订单页面实现
+- [ ] ICON等替换
+- [ ] 打包

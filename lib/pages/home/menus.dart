@@ -162,14 +162,14 @@ class Navs extends StatelessWidget {
     List<Widget> list = [];
     for (var nav in navs) {
       dynamic badge = nav["badge"] is String ? nav["badge"] : null;
-      // dynamic callback = nav["callback"] || null;
+      dynamic callback = nav["callback"] is Function ? nav["callback"] : null;
       Widget item = MenuItem(
         nav["text"],
         icon: nav["icon"],
         iconSize: nav["size"],
         textStyle: nav["textStyle"],
         badge: badge,
-        // callback: callback,
+        callback: callback,
       );
       list.add(item);
     }

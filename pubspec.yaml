@@ -35,6 +35,9 @@ dependencies:
   provider: ^4.0.5
   ff_annotation_route: ^2.0.6+1
   flutter_screenutil: ^1.0.2
+  barcode_scan: ^2.0.2
+  button_plugin: 
+    path: ./plugins/button_plugin/
 
 dev_dependencies:
   flutter_test:

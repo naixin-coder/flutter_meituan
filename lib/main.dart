@@ -2,12 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_meituan/splash.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_meituan/pages/app.dart';
-import 'package:flutter_meituan/pages/color_setting.dart';
-import 'package:flutter_meituan/pages/home/home.dart';
-import 'package:flutter_meituan/pages/order/order.dart';
 import 'package:flutter_meituan/provider/theme-provider.dart';
 
 // void main() => runApp(MyApp());
@@ -41,12 +39,14 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter美团',
           routes: {
-            "home": (context) => HomePage(),
-            "order": (context) => OrderPage(),
-            "color-setting": (context) => ColorSetting()
+            "index": (context) => AppPage(),
+            // "home": (context) => HomePage(),
+            // "order": (context) => OrderPage(),
+            // "color-setting": (context) => ColorSetting()
           },
           theme: state.themeData,
-          home: AppPage(),
+          // home: AppPage(),
+          home: Splash(),
           debugShowCheckedModeBanner: false,
         );
       }),

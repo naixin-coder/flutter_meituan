@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meituan/common/avatar.dart';
 import 'package:flutter_meituan/common/custom_icondata.dart';
@@ -40,6 +41,10 @@ class _HomePageState extends State<HomePage> {
       "size": navIconSize,
       "text": '扫一扫',
       "textStyle": navTextStyle,
+      "callback": () async {
+        String barcode = await BarcodeScanner.scan();
+        print(barcode);
+      }
     },
     {
       "icon": CustomIconData.paycode,
@@ -385,9 +390,7 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Color(0xFFFFCF00),
               enablePullUp: true,
               controller: _refreshController,
-              onRefresh: () {
-                _onRefresh();
-              },
+              onRefresh: _onRefresh,
               onLoading: _onLoading,
               child: SingleChildScrollView(
                 child: DecoratedBox(
