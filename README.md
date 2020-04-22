@@ -16,3 +16,12 @@
 - [ ] 美团订单页面实现
 - [ ] ICON等替换
 - [ ] 打包
+
+
+## 问题
+
+### 1. Cannot fit requested classes in a single dex file
+
+``
+在app下面的build.gradle中的defaultConfig中添加multiDexEnabled true
+``
