@@ -6,19 +6,23 @@ class MeiTuanBanner extends StatelessWidget {
       {Key key,
       this.height,
       this.autoplay: false,
-      this.scrollDirection: Axis.horizontal})
+      this.scrollDirection: Axis.horizontal,
+      this.margin})
       : super(key: key);
 
   final List bannerList;
   final double height;
   final bool autoplay;
   final Axis scrollDirection;
+  final EdgeInsetsGeometry margin;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      margin: EdgeInsets.fromLTRB(10.0, 25.0, 10.0, 10.0),
+      margin: (margin is EdgeInsetsGeometry)
+          ? margin
+          : EdgeInsets.fromLTRB(10.0, 25.0, 10.0, 10.0),
       child: Container(
         height: height,
         child: Swiper(

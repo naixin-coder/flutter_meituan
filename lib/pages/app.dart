@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_meituan/pages/discovery/discovery.dart';
 import 'package:flutter_meituan/pages/home/home.dart';
 import 'package:flutter_meituan/pages/me/me.dart';
@@ -31,7 +32,7 @@ class _AppPageState extends State<AppPage> {
       ),
       bottomNavigationBar: SnakeNavigationBar(
         style: SnakeBarStyle.floating,
-        snakeColor: Color(0xFFFFCA2C),
+        snakeColor: Theme.of(context).primaryColor,
         snakeShape: SnakeShape.circle,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25))),
@@ -47,16 +48,16 @@ class _AppPageState extends State<AppPage> {
             title: Text('首页'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.store_mall_directory),
-            title: Text('商家'),
+            icon: Icon(CustomIconData.discovery),
+            title: Text('发现'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.accessible),
-            title: Text('microphone'),
+            icon: Icon(CustomIconData.order),
+            title: Text('订单'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('search'),
+            icon: Icon(CustomIconData.me),
+            title: Text('我的'),
           )
         ],
       ),

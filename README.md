@@ -25,3 +25,11 @@
 ``
 在app下面的build.gradle中的defaultConfig中添加multiDexEnabled true
 ``
+
+### 2.flutter amap Trying to create an already created platform view, view id: 0
+
+``
+1.flutter channel master
+2.flutter upgrade
+3.Flutter clean
+``

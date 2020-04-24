@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meituan/common/avatar.dart';
 import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_meituan/common/refresh.dart';
+import 'package:flutter_meituan/config/application.dart';
 import 'package:flutter_meituan/mock/product_mock.dart';
 import 'package:flutter_meituan/model/product.dart';
 import 'package:flutter_meituan/pages/home/banner.dart';
@@ -34,6 +35,7 @@ class _HomePageState extends State<HomePage> {
       TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600);
   List<Card> cards = [];
   static Products listData = Products([]);
+  static BuildContext buildContext;
 
   static List navs = [
     {
@@ -78,7 +80,8 @@ class _HomePageState extends State<HomePage> {
       "padding": topNavPadding,
       "textStyle": menuTextStyle,
       "callback": () {
-        print('外卖');
+        // Navigator.of(context)
+        Application.router.navigateTo(buildContext, "takeout");
       }
     },
     {
@@ -99,7 +102,6 @@ class _HomePageState extends State<HomePage> {
       "text": '酒店住宿',
       "color": Colors.white,
       "size": topNavSize,
-      "color": Colors.white,
       "padding": topNavPadding,
       "textStyle": menuTextStyle,
       "callback": () {
@@ -230,25 +232,21 @@ class _HomePageState extends State<HomePage> {
     RadiusImage(
       'http://img.zcool.cn/community/0180e15970239fa8012193a363de40.jpg@1280w_1l_2o_100sh.jpg',
       type: 'network',
-      // width: (ScreenUtil.screenWidth - 50),
       height: 100,
     ),
     RadiusImage(
       'http://img.zcool.cn/community/013c805970239fa8012193a3adeb5c.jpg@1280w_1l_2o_100sh.jpg',
       type: 'network',
-      // width: (ScreenUtil.screenWidth - 50),
       height: 100,
     ),
     RadiusImage(
       'http://img.zcool.cn/community/01b056597023a2a8012193a3fa44d7.jpg@2o.jpg',
       type: 'network',
-      // width: (ScreenUtil.screenWidth - 50),
       height: 100,
     ),
     RadiusImage(
       'http://img.zcool.cn/community/013c805970239fa8012193a3adeb5c.jpg@2o.jpg',
       type: 'network',
-      // width: (ScreenUtil.screenWidth - 50),
       height: 100,
     ),
   ];
@@ -356,11 +354,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
+    buildContext = context;
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFFFCF00),
+            color: Theme.of(context).primaryColor,
           ),
         ),
         elevation: 0, //去掉Appbar底部阴影
@@ -387,7 +386,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Expanded(
             child: DaiyaRefresh(
-              backgroundColor: Color(0xFFFFCF00),
+              backgroundColor: Theme.of(context).primaryColor,
               enablePullUp: true,
               controller: _refreshController,
               onRefresh: _onRefresh,
@@ -399,7 +398,7 @@ class _HomePageState extends State<HomePage> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomLeft,
                       colors: [
-                        Color(0xFFFFCF00),
+                        Theme.of(context).primaryColor,
                         Colors.white,
                         Color(0xFFF5F3F5)
                       ],

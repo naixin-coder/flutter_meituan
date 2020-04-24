@@ -6,7 +6,6 @@ class ThemeState extends ChangeNotifier {
   ThemeState(this._themeData);
 
   void changeThemeData(ThemeData themeData) {
-    print(1222);
     _themeData = themeData;
     notifyListeners();
   }

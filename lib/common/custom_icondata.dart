@@ -20,4 +20,9 @@ class CustomIconData {
   static const IconData paycode = IconData(0xe8fa, fontFamily: 'MeiTuanIcons');
   static const IconData bike = IconData(0xe605, fontFamily: 'MeiTuanIcons');
   static const IconData bus = IconData(0xe61d, fontFamily: 'MeiTuanIcons');
+
+  static const IconData order = IconData(0xe603, fontFamily: 'MeiTuanIcons');
+  static const IconData discovery =
+      IconData(0xe630, fontFamily: 'MeiTuanIcons');
+  static const IconData me = IconData(0xe6b4, fontFamily: 'MeiTuanIcons');
 }

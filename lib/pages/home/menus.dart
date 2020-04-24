@@ -99,9 +99,13 @@ class Menus extends StatelessWidget {
   const Menus(
     this.menuList, {
     Key key,
+    this.padding,
+    this.borderRadius,
   }) : super(key: key);
 
   final List menuList;
+  final EdgeInsetsGeometry padding;
+  final BorderRadius borderRadius;
 
   List<Widget> menuItems(items) {
     List<Widget> list = [];
@@ -141,15 +145,18 @@ class Menus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      elevation: 0,
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 10.0),
-        child: Column(children: menus()),
-      ),
-    );
+        shape: RoundedRectangleBorder(
+          borderRadius: (borderRadius is BorderRadius)
+              ? borderRadius
+              : BorderRadius.circular(20.0),
+        ),
+        elevation: 0,
+        child: Padding(
+          padding: (padding is EdgeInsetsGeometry)
+              ? padding
+              : EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 10.0),
+          child: Column(children: menus()),
+        ));
   }
 }
 

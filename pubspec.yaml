@@ -38,6 +38,8 @@ dependencies:
   barcode_scan: ^2.0.2
   amap_map_fluttify: ^0.20.0
   permission_handler: ^5.0.0+hotfix.3
+  amap_location_fluttify: ^0.11.0
+  fluro: ^1.6.3
 
 dev_dependencies:
   flutter_test:

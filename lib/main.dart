@@ -1,12 +1,15 @@
 import 'dart:io';
 
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_meituan/pages/app.dart';
 import 'package:flutter_meituan/splash.dart';
 import 'package:provider/provider.dart';
-
-import 'package:flutter_meituan/pages/app.dart';
 import 'package:flutter_meituan/provider/theme-provider.dart';
+
+import 'config/application.dart';
+import 'config/routes.dart';
 
 // void main() => runApp(MyApp());
 
@@ -22,12 +25,18 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  MyApp() {
+    final router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+
   @override
   Widget build(BuildContext context) {
     final initThemeData = ThemeData(
       //初始主题
-      primaryColor: Colors.blue,
+      // primaryColor: Colors.blue,
+      primaryColor: Color(0xFFFFCF00),
     );
     return MultiProvider(
       providers: [
@@ -38,15 +47,13 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeState>(builder: (_, state, __) {
         return MaterialApp(
           title: 'Flutter美团',
-          routes: {
-            "index": (context) => AppPage(),
-            // "home": (context) => HomePage(),
-            // "order": (context) => OrderPage(),
-            // "color-setting": (context) => ColorSetting()
-          },
+          // routes: {
+          //   "index": (context) => AppPage(),
+          // },
+          onGenerateRoute: Application.router.generator,
           theme: state.themeData,
-          // home: AppPage(),
-          home: Splash(),
+          home: AppPage(),
+          // home: Splash(),
           debugShowCheckedModeBanner: false,
         );
       }),

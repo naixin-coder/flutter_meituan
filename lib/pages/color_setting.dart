@@ -41,10 +41,10 @@ class _ColorSettingState extends State<ColorSetting> {
             GestureDetector(
               onTap: () => {
                 Provider.of<ThemeState>(context, listen: false)
-                    .changeThemeData(ThemeData(primaryColor: Colors.yellow))
+                    .changeThemeData(ThemeData(primaryColor: Color(0xFFFFCF00)))
               },
               child: Chip(
-                backgroundColor: Colors.yellow,
+                backgroundColor: Color(0xFFFFCF00),
                 label: Text('黄色'),
               ),
             ),

@@ -1,3 +1,4 @@
+import 'package:amap_location_fluttify/amap_location_fluttify.dart';
 import 'package:amap_map_fluttify/amap_map_fluttify.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -10,9 +11,12 @@ class DiscoveryPage extends StatefulWidget {
 }
 
 class _DiscoveryPageState extends State<DiscoveryPage> {
+  // Location location;
+  LatLng latLng;
   @override
   void initState() {
     super.initState();
+    // getLocation();
   }
 
   Future<void> initKeys() async {
@@ -26,7 +30,18 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
       return true;
     } else {
       print('需要定位');
+      await [Permission.location].request();
       return false;
+    }
+  }
+
+  Future<void> getLocation() async {
+    if (await requestPermission()) {
+      Location location = await AmapLocation.fetchLocation();
+      setState(() {
+        latLng = location.latLng;
+      });
+      print("======================");
     }
   }
 
@@ -36,11 +51,11 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
       // 地图类型 (可选)
       mapType: MapType.Standard,
       // 是否显示缩放控件 (可选)
-      showZoomControl: true,
+      showZoomControl: false,
       // 是否显示指南针控件 (可选)
-      showCompass: true,
+      showCompass: false,
       // 是否显示比例尺控件 (可选)
-      showScaleControl: true,
+      showScaleControl: false,
       // 是否使能缩放手势 (可选)
       zoomGesturesEnabled: true,
       // 是否使能滚动手势 (可选)
@@ -50,9 +65,9 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
       // 是否使能倾斜手势 (可选)
       tiltGestureEnabled: true,
       // 缩放级别 (可选)
-      zoomLevel: 10,
+      zoomLevel: 18,
       // 中心点坐标 (可选)
-      centerCoordinate: LatLng(39, 116),
+      centerCoordinate: latLng,
       // 标记 (可选)
       markers: <MarkerOption>[],
       // 标识点击回调 (可选)
@@ -67,7 +82,6 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
       onMapCreated: (controller) async {
         // requestPermission是权限请求方法, 需要你自己实现
         // 如果不知道怎么处理, 可以参考example工程的实现, example工程依赖了`permission_handler`插件.
-
         if (await requestPermission()) {
           await controller.showMyLocation(MyLocationOption(show: true));
         }
