@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meituan/common/avatar.dart';
 import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_meituan/common/refresh.dart';
-import 'package:flutter_meituan/pages/home/banner.dart';
-import 'package:flutter_meituan/pages/home/menus.dart';
-import 'package:flutter_meituan/pages/takeout/feat_card.dart';
-import 'package:flutter_meituan/pages/takeout/header_sliver.dart';
-import 'package:flutter_meituan/pages/takeout/product.dart';
-import 'package:flutter_meituan/pages/takeout/recomm_card.dart';
-import 'package:flutter_meituan/pages/takeout/search.dart';
-import 'package:flutter_meituan/pages/takeout/select_sliver.dart';
-import 'package:flutter_meituan/pages/takeout/takeout_menus.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_meituan/pages/home/index/banner.dart';
+import 'package:flutter_meituan/pages/home/index/menus.dart';
+import 'package:flutter_meituan/pages/home/takeout/feat_card.dart';
+import 'package:flutter_meituan/pages/home/takeout/header_sliver.dart';
+import 'package:flutter_meituan/pages/home/takeout/product.dart';
+import 'package:flutter_meituan/pages/home/takeout/recomm_card.dart';
+import 'package:flutter_meituan/pages/home/takeout/search.dart';
+import 'package:flutter_meituan/pages/home/takeout/select_sliver.dart';
+import 'package:flutter_meituan/pages/home/takeout/takeout_menus.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class Takeout extends StatefulWidget {

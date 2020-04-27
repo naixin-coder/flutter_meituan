@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/**
+ * 发现页
+ */
 class DiscoveryPage extends StatefulWidget {
   DiscoveryPage({Key key}) : super(key: key);
 
@@ -64,22 +67,28 @@ class _DiscoveryPageState extends State<DiscoveryPage>
           style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
-        bottom: TabBar(
-          tabs: tabs,
-          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
-          labelStyle: TextStyle(fontWeight: FontWeight.w600),
-          labelPadding: EdgeInsets.only(left: 13.5, right: 13.5),
-          indicator: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-          ),
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorPadding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-          controller: controller,
-          isScrollable: true,
-        ),
       ),
-      body: Center(
-        child: Text('发现Z'),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            titleSpacing: 0.0,
+            backgroundColor: Colors.white,
+            title: TabBar(
+              tabs: tabs,
+              labelPadding: EdgeInsets.only(left: 13.5, right: 13.5),
+              unselectedLabelStyle:
+                  TextStyle(fontWeight: FontWeight.w400, fontSize: 14.0),
+              labelStyle:
+                  TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorColor: Theme.of(context).primaryColor,
+              indicatorPadding:
+                  EdgeInsets.only(bottom: 5.0, left: 5.0, right: 5.0),
+              controller: controller,
+              isScrollable: true,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meituan/pages/home/banner.dart';
+import 'package:flutter_meituan/pages/home/index/banner.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TakeoutMenus extends StatelessWidget {

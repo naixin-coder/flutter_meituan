@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meituan/common/tag.dart';
-import 'package:flutter_meituan/model/product.dart';
+import 'package:flutter_meituan/model/home/product.dart';
 
 class GridItem extends StatefulWidget {
   const GridItem({

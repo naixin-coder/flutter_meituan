@@ -7,12 +7,12 @@ import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_meituan/common/refresh.dart';
 import 'package:flutter_meituan/config/application.dart';
 import 'package:flutter_meituan/mock/product_mock.dart';
-import 'package:flutter_meituan/model/product.dart';
-import 'package:flutter_meituan/pages/home/banner.dart';
-import 'package:flutter_meituan/pages/home/grid_item.dart';
-import 'package:flutter_meituan/pages/home/location.dart';
-import 'package:flutter_meituan/pages/home/menus.dart';
-import 'package:flutter_meituan/pages/home/search.dart';
+import 'package:flutter_meituan/model/home/product.dart';
+import 'package:flutter_meituan/pages/home/index/banner.dart';
+import 'package:flutter_meituan/pages/home/index/grid_item.dart';
+import 'package:flutter_meituan/pages/home/index/location.dart';
+import 'package:flutter_meituan/pages/home/index/menus.dart';
+import 'package:flutter_meituan/pages/home/index/search.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
       "textStyle": menuTextStyle,
       "callback": () {
         // Navigator.of(context)
-        Application.router.navigateTo(buildContext, "takeout");
+        Application.router.navigateTo(buildContext, "home/takeout");
       }
     },
     {
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
       "size": bottomNavSize,
       "textStyle": menuTextStyle,
       "callback": () {
-        Application.router.navigateTo(buildContext, "taxi");
+        Application.router.navigateTo(buildContext, "home/taxi");
       }
     },
     {
@@ -277,8 +277,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
     List json = ProductMock().mockProducts();
     Products list = Products.fromJson(json);
+
     listData.data.addAll(list.data);
   }
 

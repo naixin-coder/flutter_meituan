@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meituan/pages/home/banner.dart';
+import 'package:flutter_meituan/pages/home/index/banner.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 

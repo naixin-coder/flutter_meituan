@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_meituan/pages/discovery/discovery.dart';
-import 'package:flutter_meituan/pages/home/home.dart';
+import 'package:flutter_meituan/pages/home/index/home.dart';
 import 'package:flutter_meituan/pages/me/me.dart';
 import 'package:flutter_meituan/pages/order/order.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
