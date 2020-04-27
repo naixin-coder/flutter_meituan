@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meituan/pages/app.dart';
 import 'package:flutter_meituan/pages/color_setting.dart';
 import 'package:flutter_meituan/pages/takeout/takeout.dart';
+import 'package:flutter_meituan/pages/taxi/taxi.dart';
 
 var rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -17,4 +18,9 @@ var takeoutHandler =
 var colorSettingHandler =
     Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
   return ColorSetting();
+});
+
+var taxiHandle =
+    Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+  return TaxiPage();
 });

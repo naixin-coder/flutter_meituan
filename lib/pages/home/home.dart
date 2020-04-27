@@ -137,6 +137,9 @@ class _HomePageState extends State<HomePage> {
       "padding": bottomPadding,
       "size": bottomNavSize,
       "textStyle": menuTextStyle,
+      "callback": () {
+        Application.router.navigateTo(buildContext, "taxi");
+      }
     },
     {
       "icon": CustomIconData.money,

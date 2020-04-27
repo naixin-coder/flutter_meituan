@@ -1,7 +1,4 @@
-import 'package:amap_location_fluttify/amap_location_fluttify.dart';
-import 'package:amap_map_fluttify/amap_map_fluttify.dart';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class DiscoveryPage extends StatefulWidget {
   DiscoveryPage({Key key}) : super(key: key);
@@ -10,82 +7,80 @@ class DiscoveryPage extends StatefulWidget {
   _DiscoveryPageState createState() => _DiscoveryPageState();
 }
 
-class _DiscoveryPageState extends State<DiscoveryPage> {
-  // Location location;
-  LatLng latLng;
+class _DiscoveryPageState extends State<DiscoveryPage>
+    with SingleTickerProviderStateMixin {
+  List<Widget> tabs = <Tab>[];
+
+  TabController controller;
+
   @override
   void initState() {
     super.initState();
-    // getLocation();
-  }
 
-  Future<void> initKeys() async {
-    await AmapService.init(
-        iosKey: '', androidKey: 'd7215b5fb4999610a1551837ccb54269	');
-  }
-
-  Future<bool> requestPermission() async {
-    final status = await Permission.location.status;
-    if (status == PermissionStatus.granted) {
-      return true;
-    } else {
-      print('需要定位');
-      await [Permission.location].request();
-      return false;
-    }
-  }
-
-  Future<void> getLocation() async {
-    if (await requestPermission()) {
-      Location location = await AmapLocation.fetchLocation();
-      setState(() {
-        latLng = location.latLng;
-      });
-      print("======================");
-    }
+    tabs = <Tab>[
+      Tab(
+        text: "推荐",
+      ),
+      Tab(
+        text: "丽人",
+      ),
+      Tab(
+        text: "旅行",
+      ),
+      Tab(
+        text: "电影",
+      ),
+      Tab(
+        text: "结婚",
+      ),
+      Tab(
+        text: "购物",
+      ),
+      Tab(
+        text: "教培",
+      ),
+      Tab(
+        text: "家装",
+      ),
+      Tab(
+        text: "亲子",
+      ),
+      Tab(
+        text: "医美",
+      ),
+    ];
+    controller =
+        TabController(initialIndex: 0, length: tabs.length, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    return AmapView(
-      // 地图类型 (可选)
-      mapType: MapType.Standard,
-      // 是否显示缩放控件 (可选)
-      showZoomControl: false,
-      // 是否显示指南针控件 (可选)
-      showCompass: false,
-      // 是否显示比例尺控件 (可选)
-      showScaleControl: false,
-      // 是否使能缩放手势 (可选)
-      zoomGesturesEnabled: true,
-      // 是否使能滚动手势 (可选)
-      scrollGesturesEnabled: true,
-      // 是否使能旋转手势 (可选)
-      rotateGestureEnabled: true,
-      // 是否使能倾斜手势 (可选)
-      tiltGestureEnabled: true,
-      // 缩放级别 (可选)
-      zoomLevel: 18,
-      // 中心点坐标 (可选)
-      centerCoordinate: latLng,
-      // 标记 (可选)
-      markers: <MarkerOption>[],
-      // 标识点击回调 (可选)
-      onMarkerClicked: (Marker marker) {},
-      // 地图点击回调 (可选)
-      onMapClicked: (LatLng coord) {},
-      // 地图拖动开始 (可选)
-      onMapMoveStart: (MapMove move) {},
-      // 地图拖动结束 (可选)
-      onMapMoveEnd: (MapMove move) {},
-      // 地图创建完成回调 (可选)
-      onMapCreated: (controller) async {
-        // requestPermission是权限请求方法, 需要你自己实现
-        // 如果不知道怎么处理, 可以参考example工程的实现, example工程依赖了`permission_handler`插件.
-        if (await requestPermission()) {
-          await controller.showMyLocation(MyLocationOption(show: true));
-        }
-      },
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text(
+          '发现',
+          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+        ),
+        centerTitle: true,
+        bottom: TabBar(
+          tabs: tabs,
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
+          labelStyle: TextStyle(fontWeight: FontWeight.w600),
+          labelPadding: EdgeInsets.only(left: 13.5, right: 13.5),
+          indicator: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+          ),
+          indicatorSize: TabBarIndicatorSize.label,
+          indicatorPadding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+          controller: controller,
+          isScrollable: true,
+        ),
+      ),
+      body: Center(
+        child: Text('发现Z'),
+      ),
     );
   }
 }

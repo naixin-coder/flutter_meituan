@@ -6,6 +6,7 @@ class Routes {
   static String root = "index";
   static String takeout = "takeout";
   static String colorSetting = "color-setting";
+  static String taxi = "taxi";
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = Handler(
@@ -15,5 +16,6 @@ class Routes {
     router.define(root, handler: rootHandler);
     router.define(takeout, handler: takeoutHandler);
     router.define(colorSetting, handler: colorSettingHandler);
+    router.define(taxi, handler: taxiHandle);
   }
 }
