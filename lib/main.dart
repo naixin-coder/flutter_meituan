@@ -4,7 +4,6 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_meituan/pages/app.dart';
-import 'package:flutter_meituan/splash.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_meituan/provider/theme-provider.dart';
 
@@ -35,7 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final initThemeData = ThemeData(
       //初始主题
-      // primaryColor: Colors.blue,
       primaryColor: Color(0xFFFFCF00),
     );
     return MultiProvider(

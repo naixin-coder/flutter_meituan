@@ -10,7 +10,7 @@ class DaiyaRefresh extends StatefulWidget {
     this.onRefresh,
     this.onLoading,
     this.enablePullUp = true,
-    this.backgroundColor: Colors.white,
+    this.backgroundColor,
   }) : super(key: key);
 
   final Widget child;
@@ -19,7 +19,7 @@ class DaiyaRefresh extends StatefulWidget {
   final Function onLoading;
   final RefreshController controller;
   final enablePullUp;
-  final backgroundColor;
+  final Color backgroundColor;
 
   @override
   _DaiyaRefreshState createState() => _DaiyaRefreshState();
@@ -37,14 +37,20 @@ class _DaiyaRefreshState extends State<DaiyaRefresh> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomLeft,
-          stops: [0.5, 0.6, 1],
-          colors: [widget.backgroundColor, Colors.white, Color(0xFFF5F3F5)],
-        ),
-      ),
+      decoration: (widget.backgroundColor is Color)
+          ? BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomLeft,
+                stops: [0.5, 0.6, 1],
+                colors: [
+                  widget.backgroundColor,
+                  Colors.white,
+                  Color(0xFFF5F3F5)
+                ],
+              ),
+            )
+          : null,
       child: SmartRefresher(
         enablePullDown: true,
         enablePullUp: widget.enablePullUp,
