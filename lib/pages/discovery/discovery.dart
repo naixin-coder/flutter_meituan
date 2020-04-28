@@ -145,14 +145,11 @@ class _DiscoveryPageState extends State<DiscoveryPage>
 
   @override
   Widget build(BuildContext context) {
-    Color background = Theme.of(context).primaryColor;
-    print(background);
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Theme.of(context).primaryColor,
         titleSpacing: 0.0,
-        // backgroundColor: Colors.white,
         title: Text(
           '发现',
           style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
@@ -190,7 +187,6 @@ class _DiscoveryPageState extends State<DiscoveryPage>
           Container(
             padding: EdgeInsets.all(10.0),
             child: DaiyaRefresh(
-              // backgroundColor: Color(0xFFF2F0F2),
               controller: _refreshController,
               child: grid(),
               onRefresh: onRefresh,
