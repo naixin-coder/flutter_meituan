@@ -2,9 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_meituan/common/avatar.dart';
+import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_meituan/common/refresh.dart';
 import 'package:flutter_meituan/config/application.dart';
 import 'package:flutter_meituan/pages/home/index/banner.dart';
+import 'package:flutter_meituan/pages/home/index/menus.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -17,6 +19,11 @@ class MePage extends StatefulWidget {
 
 class _MePageState extends State<MePage> {
   RefreshController _refreshController = RefreshController();
+  static EdgeInsetsGeometry bottomPadding =
+      EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 10.0);
+  static double bottomNavSize = 25.0;
+  static TextStyle menuTextStyle =
+      TextStyle(color: Color(0xFF6B6A6B), fontSize: 12.0);
 
   List bannerImages = [
     RadiusImage(
@@ -39,6 +46,76 @@ class _MePageState extends State<MePage> {
       type: 'network',
       height: 100,
     ),
+  ];
+
+  static List navMenusCenter = [
+    {
+      "icon": CustomIconData.chongzhi,
+      "backgroundColor": Colors.white,
+      "text": '充值',
+      "color": Color(0xFFFF8402),
+      "padding": bottomPadding,
+      "size": bottomNavSize,
+      "textStyle": menuTextStyle,
+      "callback": () {}
+    },
+    {
+      "icon": CustomIconData.gongjiao,
+      "backgroundColor": Colors.white,
+      "text": '公交',
+      "color": Color(0xFFFF9D50),
+      "padding": bottomPadding,
+      "size": bottomNavSize,
+      "textStyle": menuTextStyle,
+    },
+    {
+      "icon": CustomIconData.shuishou,
+      "backgroundColor": Colors.white,
+      "text": '税收',
+      "color": Color(0xFFF56E5F),
+      "padding": bottomPadding,
+      "size": bottomNavSize,
+      "textStyle": menuTextStyle,
+    },
+    {
+      "icon": CustomIconData.tianqi,
+      "backgroundColor": Colors.white,
+      "text": '天气',
+      "color": Color(0xFF08A0E7),
+      "padding": bottomPadding,
+      "size": 20.0,
+      "textStyle": menuTextStyle,
+    },
+  ];
+
+  static List navMenusBottom = [
+    {
+      "icon": CustomIconData.fapiao,
+      "backgroundColor": Colors.white,
+      "text": '发票',
+      "color": Color(0xFF16C0EF),
+      "padding": bottomPadding,
+      "size": bottomNavSize,
+      "textStyle": menuTextStyle,
+    },
+    {
+      "icon": CustomIconData.xiwang,
+      "backgroundColor": Colors.white,
+      "text": '美团大学',
+      "color": Color(0xFFFFC30F),
+      "padding": bottomPadding,
+      "size": bottomNavSize,
+      "textStyle": menuTextStyle,
+    },
+    {
+      "icon": CustomIconData.hezuo,
+      "backgroundColor": Colors.white,
+      "text": '我要合作',
+      "color": Color(0xFFF8AD1A),
+      "padding": bottomPadding,
+      "size": bottomNavSize,
+      "textStyle": menuTextStyle,
+    },
   ];
 
   List<Widget> _sliverBuilder(BuildContext context) {
@@ -575,10 +652,71 @@ class _MePageState extends State<MePage> {
     );
   }
 
+  Widget tools() {
+    List list = [navMenusCenter, navMenusBottom];
+    return Card(
+      elevation: 0.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      margin: EdgeInsets.only(
+        top: 10.0,
+        bottom: 30.0,
+      ),
+      child: Container(
+        padding: EdgeInsets.all(15.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            '推荐工具',
+            style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w600),
+          ),
+          ...menus(list),
+        ]),
+      ),
+    );
+  }
+
+  List<Widget> menuItems(items) {
+    List<Widget> list = [];
+    // icon,backgroundColor,text
+    for (var item in items) {
+      Widget widget = MenuItem(
+        item["text"],
+        icon: item["icon"],
+        iconSize: item["size"],
+        iconColor: item["color"],
+        borderRadius: 15.0,
+        backgroundColor: item["backgroundColor"],
+        iconPadding: item["padding"],
+        textPadding: EdgeInsets.only(top: 5.0),
+        useCustomIcon: true,
+        textStyle: item['textStyle'],
+        badge: item["badge"],
+        callback: item["callback"],
+      );
+      list.add(widget);
+    }
+    return list;
+  }
+
+  List<Widget> menus(menuList) {
+    List<Widget> rows = [];
+    for (var menu in menuList) {
+      Widget widget = Flex(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+        direction: Axis.horizontal,
+        children: menuItems(menu),
+      );
+      rows.add(widget);
+    }
+    return rows;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      // backgroundColor: Theme.of(context).primaryColor,
       // appBar: AppBar(
       //   elevation: 0.0,
       //   title: Text('15823138353'),
@@ -586,7 +724,7 @@ class _MePageState extends State<MePage> {
       body: Container(
         // margin: EdgeInsets.only(top: 30.0),
         child: DaiyaRefresh(
-          // backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: Theme.of(context).primaryColor,
           controller: _refreshController,
           onRefresh: () {
             _refreshController.refreshCompleted();
@@ -706,7 +844,8 @@ class _MePageState extends State<MePage> {
                         autoplay: true,
                         margin: EdgeInsets.only(top: 10.0),
                       ),
-                      interactive()
+                      interactive(),
+                      tools()
                     ],
                   ),
                 ),
@@ -735,6 +874,7 @@ class _SliverDelegate extends SliverPersistentHeaderDelegate {
         ? Container(
             height: maxHeight,
             padding: EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 0.0),
+            color: Theme.of(context).primaryColor,
             child: Column(
               children: [
                 Row(

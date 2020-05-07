@@ -101,11 +101,13 @@ class Menus extends StatelessWidget {
     Key key,
     this.padding,
     this.borderRadius,
+    this.margin,
   }) : super(key: key);
 
   final List menuList;
   final EdgeInsetsGeometry padding;
   final BorderRadius borderRadius;
+  final EdgeInsetsGeometry margin;
 
   List<Widget> menuItems(items) {
     List<Widget> list = [];
@@ -134,7 +136,7 @@ class Menus extends StatelessWidget {
     List<Widget> rows = [];
     for (var menu in menuList) {
       Widget widget = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: menuItems(menu),
       );
       rows.add(widget);
@@ -144,6 +146,7 @@ class Menus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(padding is EdgeInsetsGeometry);
     return Card(
         shape: RoundedRectangleBorder(
           borderRadius: (borderRadius is BorderRadius)
@@ -151,6 +154,7 @@ class Menus extends StatelessWidget {
               : BorderRadius.circular(20.0),
         ),
         elevation: 0,
+        margin: margin,
         child: Padding(
           padding: (padding is EdgeInsetsGeometry)
               ? padding

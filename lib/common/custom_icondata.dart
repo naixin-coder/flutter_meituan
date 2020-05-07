@@ -21,6 +21,14 @@ class CustomIconData {
   static const IconData bike = IconData(0xe605, fontFamily: 'MeiTuanIcons');
   static const IconData bus = IconData(0xe61d, fontFamily: 'MeiTuanIcons');
 
+  static const IconData chongzhi = IconData(0xe61c, fontFamily: 'MeiTuanIcons');
+  static const IconData gongjiao = IconData(0xe607, fontFamily: 'MeiTuanIcons');
+  static const IconData shuishou = IconData(0xe6b5, fontFamily: 'MeiTuanIcons');
+  static const IconData tianqi = IconData(0xe604, fontFamily: 'MeiTuanIcons');
+  static const IconData fapiao = IconData(0xe60b, fontFamily: 'MeiTuanIcons');
+  static const IconData xiwang = IconData(0xe625, fontFamily: 'MeiTuanIcons');
+  static const IconData hezuo = IconData(0xe631, fontFamily: 'MeiTuanIcons');
+
   static const IconData order = IconData(0xe603, fontFamily: 'MeiTuanIcons');
   static const IconData discovery =
       IconData(0xe630, fontFamily: 'MeiTuanIcons');
