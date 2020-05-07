@@ -4,6 +4,7 @@ import 'package:flutter_meituan/config/routes_init.dart';
 // import 'package:flutter_meituan/config/route_handler.dart';
 import 'package:flutter_meituan/pages/app.dart';
 import 'package:flutter_meituan/pages/home/home_route.dart';
+import 'package:flutter_meituan/pages/me/me_route.dart';
 
 var rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -22,6 +23,7 @@ class Routes {
 
     // 首页
     _listRouter.add(HomesRoutes());
+    _listRouter.add(MeRoutes());
 
     /// 初始化路由
     _listRouter.forEach((routerProvider) {

@@ -136,7 +136,7 @@ class Menus extends StatelessWidget {
     List<Widget> rows = [];
     for (var menu in menuList) {
       Widget widget = Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: menuItems(menu),
       );
       rows.add(widget);
