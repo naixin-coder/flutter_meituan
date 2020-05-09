@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meituan/common/custom_icondata.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 
 class Toolbar extends StatelessWidget {
@@ -7,50 +8,79 @@ class Toolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 120,
       color: Color(0xFFF5F3F5),
       child: Stack(
         children: [
           Container(
             color: Theme.of(context).primaryColor,
-            height: 90,
+            height: 100,
+            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
                   children: [
                     Icon(
-                      Icons.star_border,
-                      size: 35.0,
+                      CustomIconData.shoucang,
+                      size: 30.0,
                     ),
-                    Text('收藏'),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.0),
+                      child: Text(
+                        '收藏',
+                        style: TextStyle(
+                            fontSize: 12.0, fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
                     Icon(
-                      Icons.star_border,
-                      size: 35.0,
+                      CustomIconData.pingjia,
+                      size: 30.0,
                     ),
-                    Text('收藏'),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.0),
+                      child: Text(
+                        '评价',
+                        style: TextStyle(
+                            fontSize: 12.0, fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
                     Icon(
-                      Icons.star_border,
-                      size: 35.0,
+                      CustomIconData.zuji,
+                      size: 30.0,
                     ),
-                    Text('收藏'),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.0),
+                      child: Text(
+                        '足迹',
+                        style: TextStyle(
+                            fontSize: 12.0, fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
                     Icon(
-                      Icons.star_border,
-                      size: 35.0,
+                      CustomIconData.hongbao,
+                      size: 30.0,
                     ),
-                    Text('收藏'),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.0),
+                      child: Text(
+                        '红包卡券',
+                        style: TextStyle(
+                            fontSize: 12.0, fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ],
                 ),
               ],

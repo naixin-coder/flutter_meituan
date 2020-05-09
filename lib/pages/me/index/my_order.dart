@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meituan/common/custom_icondata.dart';
 
 class MyOrder extends StatelessWidget {
   const MyOrder({Key key}) : super(key: key);
@@ -45,56 +46,69 @@ class MyOrder extends StatelessWidget {
               padding: EdgeInsets.only(top: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Column(
                     children: [
                       Icon(
-                        Icons.payment,
+                        CustomIconData.daifk,
                         color: Color(0xFFFFBA03),
-                        size: 40.0,
+                        size: 30.0,
                       ),
-                      Text(
-                        '待付款',
-                        style: TextStyle(fontSize: 13.0),
+                      Padding(
+                        padding: EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          '待付款',
+                          style: TextStyle(fontSize: 13.0),
+                        ),
                       ),
                     ],
                   ),
                   Column(
                     children: [
                       Icon(
-                        Icons.payment,
+                        CustomIconData.daisy,
                         color: Color(0xFFFFBA03),
-                        size: 40.0,
+                        size: 30.0,
                       ),
-                      Text(
-                        '待使用',
-                        style: TextStyle(fontSize: 13.0),
+                      Padding(
+                        padding: EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          '待使用',
+                          style: TextStyle(fontSize: 13.0),
+                        ),
                       ),
                     ],
                   ),
                   Column(
                     children: [
                       Icon(
-                        Icons.payment,
+                        CustomIconData.daipj,
                         color: Color(0xFFFFBA03),
-                        size: 40.0,
+                        size: 30.0,
                       ),
-                      Text(
-                        '待评价',
-                        style: TextStyle(fontSize: 13.0),
+                      Padding(
+                        padding: EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          '待评价',
+                          style: TextStyle(fontSize: 13.0),
+                        ),
                       ),
                     ],
                   ),
                   Column(
                     children: [
                       Icon(
-                        Icons.payment,
+                        CustomIconData.tuikuan,
                         color: Color(0xFFFFBA03),
-                        size: 40.0,
+                        size: 30.0,
                       ),
-                      Text(
-                        '退款/售后',
-                        style: TextStyle(fontSize: 13.0),
+                      Padding(
+                        padding: EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          '退款/售后',
+                          style: TextStyle(fontSize: 13.0),
+                        ),
                       ),
                     ],
                   ),

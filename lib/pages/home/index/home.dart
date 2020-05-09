@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
       "padding": topNavPadding,
       "textStyle": menuTextStyle,
       "callback": () {
-        print('美食');
+        Application.router.navigateTo(buildContext, "home/cate");
       }
     },
     {

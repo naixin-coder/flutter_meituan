@@ -1,6 +1,15 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 刘林
+ * @Date: 2020-04-27 09:54:27
+ * @LastEditors: 刘林
+ * @LastEditTime: 2020-05-08 10:16:37
+ */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meituan/config/routes_init.dart';
+import 'package:flutter_meituan/pages/home/cate/cate.dart';
 import 'package:flutter_meituan/pages/home/index/home.dart';
 import 'package:flutter_meituan/pages/home/takeout/takeout.dart';
 import 'package:flutter_meituan/pages/home/taxi/taxi.dart';
@@ -10,13 +19,15 @@ class HomesRoutes implements IRouterProvider {
 
   static String takeout = "home/takeout"; // 外卖
 
+  static String cate = "home/cate";
+
   static String taxi = "home/taxi"; // 打车
 
   @override
   void initRouter(Router router) {
     router.define(index, handler: rootHandler);
     router.define(takeout, handler: takeoutHandler);
-    // router.define(colorSetting, handler: colorSettingHandler);
+    router.define(cate, handler: cateHandler);
     router.define(taxi, handler: taxiHandle);
   }
 }
@@ -31,10 +42,10 @@ var takeoutHandler =
   return Takeout();
 });
 
-// var colorSettingHandler =
-//     Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-//   return ColorSetting();
-// });
+var cateHandler =
+    Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+  return CatePage();
+});
 
 var taxiHandle =
     Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {

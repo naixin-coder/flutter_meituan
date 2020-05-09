@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: 刘林
+ * @Date: 2020-04-16 15:54:55
+ * @LastEditors: 刘林
+ * @LastEditTime: 2020-05-08 10:31:32
+ */
 import 'package:flutter/material.dart';
 
 class CustomIconData {
@@ -28,6 +36,17 @@ class CustomIconData {
   static const IconData fapiao = IconData(0xe60b, fontFamily: 'MeiTuanIcons');
   static const IconData xiwang = IconData(0xe625, fontFamily: 'MeiTuanIcons');
   static const IconData hezuo = IconData(0xe631, fontFamily: 'MeiTuanIcons');
+
+  static const IconData shoucang = IconData(0xe6b8, fontFamily: 'MeiTuanIcons');
+  static const IconData pingjia = IconData(0xe60a, fontFamily: 'MeiTuanIcons');
+  static const IconData zuji = IconData(0xe620, fontFamily: 'MeiTuanIcons');
+  static const IconData hongbao = IconData(0xe632, fontFamily: 'MeiTuanIcons');
+  static const IconData daifk = IconData(0xe641, fontFamily: 'MeiTuanIcons');
+  static const IconData daisy = IconData(0xe65f, fontFamily: 'MeiTuanIcons');
+  static const IconData daipj = IconData(0xe8e7, fontFamily: 'MeiTuanIcons');
+  static const IconData tuikuan = IconData(0xe621, fontFamily: 'MeiTuanIcons');
+
+  static const IconData fenxiang = IconData(0xe60c, fontFamily: 'MeiTuanIcons');
 
   static const IconData order = IconData(0xe603, fontFamily: 'MeiTuanIcons');
   static const IconData discovery =
